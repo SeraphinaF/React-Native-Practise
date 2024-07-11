@@ -1,25 +1,20 @@
-const commonColor = {
-  commonWhite: "#FFFFFF",
-  commonBlack: "#000000",
-  activeColor: "#DE5E69",
-  deactiveColor: "#DE5E6950",
-  boxActiveColor: "#DE5E6940",
+export const lightTheme = {
+  backgroundColor: "#FFFFFF",
+  textColor: "#000000",
+  textColorLight: "#FFFFFF",
+  iconFocused: "#365E32",
+  iconUnFocused: "#B6C2CF",
+  primary: "#365E32",
+  secondary: "#DE6F45",
+  opacity: "#00000020",
 };
-
-const lightTheme = {
-  themeColor: "#FFFFFF",
-  white: "#000000",
-  sky: "#DE5E69",
-  gray: "gray",
-  ...commonColor,
+export const darkTheme = {
+  backgroundColor: "#161A1D",
+  textColor: "#DEE4EA",
+  textColorLight: "#DEE4EA",
+  iconFocused: "#DEE4EA",
+  tabBarColor: "#2C333A",
+  primary: "#365E32",
+  secondary: "#81A263",
+  opacity: "#FFFFFF20",
 };
-
-const darkTheme = {
-  themeColor: "#000000",
-  white: "#FFFFFF",
-  sky: "#831a23",
-  gray: "white",
-  ...commonColor,
-};
-
-export default { lightTheme, darkTheme };

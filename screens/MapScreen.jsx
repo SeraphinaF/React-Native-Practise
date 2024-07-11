@@ -29,7 +29,6 @@ const MapScreen = () => {
           latitudeDelta: 5.135,
           longitudeDelta: 5.135,
         }}
-        // provider="google"
         apiKey="AIzaSyCGw7Zgznj8Pny4qqSz1z6kkhBsCIkvyi4"
       >
         <Marker

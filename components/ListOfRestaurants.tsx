@@ -10,19 +10,19 @@ import {
 import { SafeAreaView } from "react-native-safe-area-context";
 import useRestaurants from "../fetchData/fetchRestaurants";
 import { useNavigation } from "@react-navigation/native";
-// import SavedButton from "./addFavorite";
+import { useContext } from "react";
+import { ThemeContext } from "../components/ThemeContext";
 
 const ListOfRestaurants = () => {
   const navigation = useNavigation();
   const restaurantList = useRestaurants();
+  const { theme } = useContext(ThemeContext);
 
   return (
-    <SafeAreaView>
-      <View style={styles.header}>
-        <Text style={styles.title}>Restaurant list</Text>
-      </View>
+    <View>
       <FlatList
         data={restaurantList}
+        showsVerticalScrollIndicator={false}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
           <Pressable
@@ -41,11 +41,7 @@ const ListOfRestaurants = () => {
                   cache: "force-cache",
                 }}
               >
-                {/* <SavedButton /> */}
                 <View style={styles.overlay}></View>
-                <View>
-                  <Text style={{ color: "white" }}>Favorite</Text>
-                </View>
                 <View style={styles.openNow}>
                   {item.opening_hours?.open_now ? (
                     <Text style={{ color: "#adff2f" }}>Open Now</Text>
@@ -59,24 +55,17 @@ const ListOfRestaurants = () => {
           </Pressable>
         )}
       />
-    </SafeAreaView>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
-  header: {
-    paddingBottom: 32,
-  },
-  title: {
-    fontSize: 32,
-    fontWeight: "700",
-  },
   restaurants: {
     paddingVertical: 8,
   },
   openNow: {
     padding: 3,
-    backgroundColor: "rgba(52, 52, 52, 0.5)",
+    backgroundColor: "rgba(52, 52, 52, 0.8)",
     borderRadius: 5,
     position: "absolute",
     bottom: 24,
